@@ -2,14 +2,14 @@ import subprocess as sps
 import sys, os
 sys.path.append(os.getcwd())
 
-def sbatch(job_name="py_job", mem=8, dep="", days=3, log="submit.out",wrap="python hello.py"):
+def sbatch(job_name="py_job", mem=8, dep="", days=3, log="submit.out",wrap="python hello.py", add_option=""):
     sub=['sbatch',
          '--ntasks=1',
          '--cpus-per-task=1', '-N', '1',
          '--job-name={}'.format(job_name),
-         '--mem={}000'.format(mem),
-         '--time={}-0'.format(days),
-         dep,
+         '--mem={}'.format(mem+"000"),
+         '--time={}'.format(days+"-0"),
+         dep, add_option,
          '--out={}'.format(log)]
     sub.append('--wrap="{}"'.format(wrap.strip()))
     # print(" ".join(sub))
