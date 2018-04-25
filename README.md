@@ -9,7 +9,7 @@ cd pysbatch
 pip install .
 ```
 
-pysbatch contains 2 functions, sps_ver() directly submit job and shell_ver() save it as a shell file(not useful)
+pysbatch contains only 1 function sbatch()
 
 ## running in python
 ```
