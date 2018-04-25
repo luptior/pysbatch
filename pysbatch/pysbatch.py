@@ -38,4 +38,4 @@ def sps_ver(job_name="py_job", mem=8, dep="", days=3, log="submit.out",wrap="pyt
 
 
 if __name__ == '__main__':
-    sps_ver(wrap="python hello.py 1 2 3 4 5")
+    sps_ver(wrap="python hello.py")
