@@ -1,1 +1,1 @@
-from pysbatch import sps_ver
+from .pysbatch import sps_ver
