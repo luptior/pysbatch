@@ -14,13 +14,7 @@ pip install .
 from pysbatch import *
 sps_ver(wrap="python hello.py") # simplest
 
-jobid=sps_ver(wrap="python hello.py").split(" ")[-1]
+jobid=sps_ver(wrap="python hello.py").split(" ")[-1] # more options
 sps_ver(job_name="py_job", mem=16, dep="--dependency:afterok{}".format(jobid), days=3, log="submit.out",wrap="python hello.py")
 
-```
-### example file
-```
-#hello.py
-
-print("Hello World!")
 ```

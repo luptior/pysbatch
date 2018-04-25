@@ -18,7 +18,7 @@ def shell_ver(job_name="py_job", mem=8, dep="", days=3, log="submit.out",wrap="p
     with open(script, "w") as myfile:
         myfile.write(" ".join(sub))
 
-    sps.run(['sh', script])
+    # sps.run(['sh', script])
 
 
 def sps_ver(job_name="py_job", mem=8, dep="", days=3, log="submit.out",wrap="python hello.py"):
@@ -34,7 +34,7 @@ def sps_ver(job_name="py_job", mem=8, dep="", days=3, log="submit.out",wrap="pyt
     # print(" ".join(sub))
     process = sps.Popen(" ".join(sub), shell=True, stdout=sps.PIPE)
     stdout = process.communicate()[0].decode("utf-8")
-    print(stdout)
+    return(stdout)
 
 
 if __name__ == '__main__':
