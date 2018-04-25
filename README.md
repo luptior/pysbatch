@@ -9,12 +9,14 @@ cd pysbatch
 pip install .
 ```
 
+pysbatch contains 2 functions, sps_ver() directly submit job and shell_ver() save it as a shell file(not useful)
+
 ## running in python
 ```
 from pysbatch import *
-sps_ver(wrap="python hello.py") # simplest
+sbatch(wrap="python hello.py") # simplest
 
-jobid=sps_ver(wrap="python hello.py").split(" ")[-1] # more options
-sps_ver(job_name="py_job", mem=16, dep="--dependency:afterok{}".format(jobid), days=3, log="submit.out",wrap="python hello.py")
+jobid=sbatch(wrap="python hello.py").split(" ")[-1] # more options
+sbatch(job_name="py_job", mem=16, dep="--dependency:afterok{}".format(jobid), days=3, log="submit.out",wrap="python hello.py")
 
 ```
