@@ -2,7 +2,7 @@ import subprocess as sps
 import sys, os
 sys.path.append(os.getcwd())
 
-def sbatch(job_name="py_job", mem=8, dep="", days=3, log="submit.out",wrap="python hello.py", add_option=""):
+def sbatch(job_name="py_job", mem='8', dep="", days='3', log="submit.out",wrap="python hello.py", add_option=""):
     sub=['sbatch',
          '--ntasks=1',
          '--cpus-per-task=1', '-N', '1',
