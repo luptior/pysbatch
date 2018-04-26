@@ -85,5 +85,12 @@ def limit_jobs(limit=20000):
         time.sleep(300)
     return
 
+def limit_jobs(limit=20000, time=t):
+    l_jobs=run_cmd(['squeue', '-u', '$USER']).split("\n")
+    # limit the total number of jobs in slurm job queue
+    if int(l_jobs) >= int(limit):
+        time.sleep(int(t))
+    return
+
 if __name__ == '__main__':
     sbatch(wrap="python hello.py")

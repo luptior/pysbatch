@@ -31,6 +31,14 @@ x.sbatch("python hello.py") # after setup, the settings object can be reused
 
 ```
 
+## total job number in queue
+```
+# most cluster will have cap for the number of jobs one user can submit into queue
+# with this function, you can set arbitary numbers, and submission will be paused for set time(in seconds)
+
+
+```
+
 
 ## run_cmd()
 ```
