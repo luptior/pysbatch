@@ -22,7 +22,7 @@ def run_cmd(cmd):
     # cmd pass in as a list of strings, i.e. cd .. should be ['cd', '..']
     # return screen print as a string
     process=sps.run(cmd, stdout=sps.PIPE)
-    return process.stdout.decode("utf-8").strip("\n")
+    return process.stdout.decode("utf-8")
 
 
 if __name__ == '__main__':
