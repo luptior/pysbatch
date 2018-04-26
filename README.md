@@ -9,7 +9,7 @@ cd pysbatch
 pip install .
 ```
 
-pysbatch contains only 1 function sbatch()
+pysbatch contains only 2 functions sbatch() and run_cmd()
 
 ## running in python
 ```
@@ -21,4 +21,13 @@ sbatch(job_name="py_job", mem=16, dep="--dependency:afterok:{}".format(jobid), d
 
 sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python hello.py") # add more options
 
+```
+
+## run_cmd()
+```
+#simplified subprocess.run() of running linux command in python
+>>>print(run_cmd(['ls', '..']))
+unrar
+var
+zlib-1.2.11
 ```
