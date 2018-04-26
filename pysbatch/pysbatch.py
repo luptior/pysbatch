@@ -12,7 +12,7 @@ class batch_setting:
     job_name=''
     dep=''
     mem=''
-    days=''
+    time=''
     log=''
     options=''
 
@@ -21,23 +21,30 @@ class batch_setting:
         self.cpus_per_task='1'
         self.N='1'
         self.job_name="py_job"
-        self.dep=""
         self.mem="8"
-        self.days='3'
+        self.time='3-0'
         self.log="submit.out"
-        self.options=""
 
     def edit_default(self, edit):
         try:
             for x in edit.split(" "):
                 var, value = x.split("=")
                 var = '_'.join(filter(None, var.split("-")))
-                print(var)
                 _='value'
                 exec("self.{} = {}".format(var, _))
         except:
              sys.exit("Edit string is in wrong format/include options other than default")
 
+    def reset_dep(self):
+        # if not dep is needed
+        self.dep = ''
+
+    def add_dep(self, edit):
+        # if need to add dep
+        if self.dep:
+            self.dep = "--dependency:afterok:{}".format(str(edit))
+        else:
+            self.dep += ":{}".format(str(edit))
 
     def add_options(self, edit):
         self.options=edit
@@ -49,7 +56,7 @@ class batch_setting:
              '--cpus-per-task={}'.format(self.cpus_per_task), '-N', self.N,
              '--job-name={}'.format(self.job_name),
              '--mem={}'.format(self.mem+"000"),
-             '--time={}'.format(self.days+"-0"),
+             '--time={}'.format(self.time),
              self.dep, self.options,
              '--out={}'.format(self.log),
              '--wrap="{}"'.format(wrap.strip())]
@@ -59,13 +66,13 @@ class batch_setting:
         return(stdout)
 
 
-def sbatch(job_name="py_job", mem='8', dep="", days='3', log="submit.out",wrap="python hello.py", add_option=""):
+def sbatch(job_name="py_job", mem='8', dep="", time='3-0', log="submit.out",wrap="python hello.py", add_option=""):
     sub=['sbatch',
          '--ntasks=1',
          '--cpus-per-task=1', '-N', '1',
          '--job-name={}'.format(job_name),
          '--mem={}'.format(mem+"000"),
-         '--time={}'.format(days+"-0"),
+         '--time={}'.format(time),
          dep, add_option,
          '--out={}'.format(log)]
     sub.append('--wrap="{}"'.format(wrap.strip()))
