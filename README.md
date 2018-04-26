@@ -9,9 +9,8 @@ cd pysbatch
 pip install .
 ```
 
-pysbatch contains only 2 functions sbatch() and run_cmd()
 
-## running in python
+## running sbatch() function in python
 ```
 from pysbatch import *
 sbatch(wrap="python hello.py") # simplest
@@ -28,14 +27,14 @@ sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python
 x = batch_setting()
 x.edit_default("--cpus-per-task=2 --job-name=lalaland")
 x.add_options("--ccc hwlo")
-x.sbatch("python hello.py")
+x.sbatch("python hello.py") # after setup, the settings object can be reused
 
 ```
 
 
 ## run_cmd()
 ```
-#simplified subprocess.run() of running linux command in python
+# simplified subprocess.run() of running linux command in python
 >>>print(run_cmd(['ls', '..']))
 unrar
 var
