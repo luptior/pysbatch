@@ -17,6 +17,13 @@ def sbatch(job_name="py_job", mem='8', dep="", days='3', log="submit.out",wrap="
     stdout = process.communicate()[0].decode("utf-8")
     return(stdout)
 
+def run_cmd(cmd):
+    # simplified subprocess.run() of running linux command in python
+    # cmd pass in as a list of strings, i.e. cd .. should be ['cd', '..']
+    # return screen print as a string
+    process=sps.run(cmd, stdout=sps.PIPE)
+    return process.stdout.decode("utf-8").strip("\n")
+
 
 if __name__ == '__main__':
     sbatch(wrap="python hello.py")
