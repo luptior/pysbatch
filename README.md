@@ -23,6 +23,16 @@ sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python
 
 ```
 
+## running with custormized setting
+```
+x = batch_setting()
+x.edit_default("--cpus-per-task=2 --job-name=lalaland")
+x.add_options("--ccc hwlo")
+x.sbatch("python hello.py")
+
+```
+
+
 ## run_cmd()
 ```
 #simplified subprocess.run() of running linux command in python
