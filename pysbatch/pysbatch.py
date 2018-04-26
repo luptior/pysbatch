@@ -1,5 +1,5 @@
 import subprocess as sps
-import sys, os
+import sys, os, time
 sys.path.append(os.getcwd())
 
 def sbatch(job_name="py_job", mem='8', dep="", days='3', log="submit.out",wrap="python hello.py", add_option=""):
@@ -24,6 +24,12 @@ def run_cmd(cmd):
     process=sps.run(cmd, stdout=sps.PIPE)
     return process.stdout.decode("utf-8").strip("\n")
 
+def limit_jobs(limit=20000):
+    l_jobs=run_cmd(['squeue', '-u', '$USER']).split("\n")
+    # limit the total number of jobs in slurm job queue
+    if int(l_jobs) >= 20000:
+        time.sleep(300)
+    return
 
 if __name__ == '__main__':
     sbatch(wrap="python hello.py")
