@@ -4,9 +4,8 @@ Submit(sbatch) slurm cluster job inside python and avoid shell script for compli
 
 ## install in linux/unix
 ```
-git clone https://github.com/luptior/pysbatch.git
-cd pysbatch
-pip install .
+# now published to PyPI, only support python version >= 3.5
+pip install pysbatch
 ```
 
 
