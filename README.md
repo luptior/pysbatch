@@ -61,3 +61,13 @@ unrar
 var
 zlib-1.2.11
 ```
+
+
+## Authors
+
+* **Gan Xu**  - [Ganxu.science](https://ganxu.science)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
