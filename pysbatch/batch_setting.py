@@ -46,7 +46,7 @@ class batch_setting:
             return
 
         if not self.dep:
-            self.dep = "--dependency:afterok:{}".format(str(edit))
+            self.dep = "--dependency=afterok:{}".format(str(edit))
         else:
             self.dep += ":{}".format(str(edit))
 
