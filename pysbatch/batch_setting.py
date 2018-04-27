@@ -14,14 +14,17 @@ class batch_setting:
     options=''
 
     def __init__(self, ntasks='1', cpus_per_task='1', N='1', job_name="py_job",
-                                        mem="8", time='3-0', log="submit.out"):
-        self.ntasks=str(ntasks)
-        self.cpus_per_task=str(cpus_per_task)
-        self.N=str(N)
-        self.job_name=str(job_name)
-        self.mem=str(mem)
-        self.time=str(time)
-        self.log=str(log)
+                                        mem="8", time='1-0', log='', empty_set=False):
+        if empty_set:
+            return
+        else:
+            self.ntasks=str(ntasks)
+            self.cpus_per_task=str(cpus_per_task)
+            self.N=str(N)
+            self.job_name=str(job_name)
+            self.mem=str(mem)
+            self.time=str(time)
+            self.log=str(log)
 
     def edit_default(self, edit):
         try:
@@ -32,6 +35,62 @@ class batch_setting:
                 exec("self.{} = {}".format(var, _))
         except:
              sys.exit("Edit string is in wrong format/include options other than default")
+
+    def edit_ntasks(self, edit):
+        try:
+            edit=int(edit)
+        except ValueError:
+            print("dependency input should be integer")
+            return
+        self.ntasks=str(edit)
+
+    def edit_cpus_per_task(self, edit):
+        try:
+            edit=int(edit)
+        except ValueError:
+            print("dependency input should be integer")
+            return
+        self.cpus_per_task=str(edit)
+
+    def edit_N(self, edit):
+        try:
+            edit=int(edit)
+        except ValueError:
+            print("dependency input should be integer")
+            return
+        self.N=str(edit)
+
+    def edit_job_name(self, edit):
+        try:
+            edit=str(edit)
+        except ValueError:
+            print("dependency input should be string")
+            return
+        self.job_name=str(edit)
+
+    def edit_mem(self, edit):
+        try:
+            edit=int(edit)
+        except ValueError:
+            print("dependency input should be integer")
+            return
+        self.mem=str(edit)
+
+    def edit_time(self, edit):
+        try:
+            edit=str(edit)
+        except ValueError:
+            print("dependency input should be slurm time format in string")
+            return
+        self.time=str(edit)
+
+    def edit_log(self, edit):
+        try:
+            edit=str(edit)
+        except ValueError:
+            print("dependency input should be path to outfile in string")
+            return
+        self.log=str(edit)
 
     def reset_dep(self):
         # if not dep is needed
@@ -52,7 +111,6 @@ class batch_setting:
 
     def add_options(self, edit):
         self.options=edit
-
 
     def sbatch(self, wrap):
         sub=['sbatch',

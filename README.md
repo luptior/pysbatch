@@ -24,11 +24,14 @@ sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python
 ## running with custormized setting
 ```
 # initialize and edit batch_setting object
-
 x = batch_setting()
+x2 = batch_setting(mem="16")
+
 # edit default options contain in this pakcage:
 # --ntasks, --cpus-per-task, -N, --job-name, --mem, --time, --out
-x.edit_default("--cpus-per-task=2 --job-name=lalaland")
+x.edit_cpus_per_task(8)
+x.edit_mem("16") # one at a time
+x.edit_default("--cpus-per-task=2 --job-name=lalaland") # all together
 
 # edit dependency, de
 x.add_dep(27561)
