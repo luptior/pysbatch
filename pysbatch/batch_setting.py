@@ -64,7 +64,7 @@ class batch_setting:
              self.dep, self.options,
              '--out={}'.format(self.log),
              '--wrap="{}"'.format(wrap.strip())]
-        print(" ".join(sub))
-        # process = sps.Popen(" ".join(sub), shell=True, stdout=sps.PIPE)
-        # stdout = process.communicate()[0].decode("utf-8")
-        # return(stdout)
+        # print(" ".join(sub))
+        process = sps.Popen(" ".join(sub), shell=True, stdout=sps.PIPE)
+        stdout = process.communicate()[0].decode("utf-8")
+        return(stdout)
