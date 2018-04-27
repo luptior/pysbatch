@@ -15,7 +15,7 @@ setup(name='pysbatch',
 
           # Indicate who your project is intended for
           'Intended Audience :: Science/Research',
-          'Topic :: Scientific/Engineering :: Bio-Informatics'
+          'Topic :: Scientific/Engineering :: Bio-Informatics',
 
           # Pick your license as you wish (should match "license" above)
            'License :: OSI Approved :: MIT License',
