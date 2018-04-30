@@ -24,8 +24,8 @@ sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python
 ## running with custormized setting
 ```
 # initialize and edit batch_setting object
-x = batch_setting()
-x2 = batch_setting(mem="16")
+x = batch_setting() # start with default settings
+x2 = batch_setting(mem="16") # change settings when initialize
 
 # edit default options contain in this pakcage:
 # --ntasks, --cpus-per-task, -N, --job-name, --mem, --time, --out
@@ -40,6 +40,9 @@ x.reset_dep()
 
 # add aditional
 x.add_options("--begin=16:00")
+
+x = batch_setting(empty_set=True)
+x.add_options("--cpus-per-task=2 --job-name=lalaland ")
 
 # the settings object can be reused
 x.sbatch("python hello.py")

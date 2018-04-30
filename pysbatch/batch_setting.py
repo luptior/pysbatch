@@ -26,6 +26,10 @@ class batch_setting:
             self.time=str(time)
             self.log=str(log)
 
+    def __str__(self):
+...         return self.ntasks, self.cpus_per_task, self.N, self.job_name, \
+            self.mem, self.time, self.log
+
     def edit_default(self, edit):
         try:
             for x in edit.split(" "):
