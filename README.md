@@ -23,6 +23,8 @@ sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python
 
 ## running with custormized setting
 ```python
+from pysbatch import *
+
 # initialize and edit batch_setting object
 x = batch_setting() # start with default settings
 x2 = batch_setting(mem="16") # change settings when initialize
@@ -61,8 +63,9 @@ var
 zlib-1.2.11
 ```
 
-#in python
+
 ```python
+# in python
 >>>print(run_cmd(['ls', '..']))
 unrar
 var
