@@ -3,7 +3,7 @@
 Submit(sbatch) slurm cluster job inside python and avoid shell script for complicated pipeline jobs. For sbatch options, now only supports job name, memory size(in GBs), time limit(in days), dependency and ouput file. But you can use add_option parameter to add more.
 
 ## install in linux/unix
-```sh
+```bash
 # now published to PyPI, only support python version >= 3.5
 pip install pysbatch
 ```
