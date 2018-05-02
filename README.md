@@ -18,7 +18,8 @@ pip install .
 Recommended way to use the pysbatch, batch_setting object can be resued and avoid trouble
 ```python
 from pysbatch import *
-x = batch_setting() # with default settings
+x = batch_setting_new() # with default settings
+x2 = batch_setting_new("--cpus-per-task=2 --job-name=lalaland") # with customized settings
 x.edit_default("--cpus-per-task=2 --job-name=lalaland") # now replace the default instead of "edit"
 x.add_options("--begin=16:00")
 
@@ -50,7 +51,8 @@ sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python
 ## limit total numbers in running/queued
 useful if your slurm has a queue quota set and you need to submit a large batch of jobs
 ```python
-for job in joblist:
+# example
+for job in job_batch:
   sbatch(job)
   limit_jobs(limit=10000) # default is 200000
 ```
@@ -66,7 +68,6 @@ unrar
 var
 zlib-1.2.11
 ```
-
 
 ```python
 # in python
