@@ -1,4 +1,4 @@
-# pysbatch 0.1.3
+# pysbatch 0.1.4
 
 
 Submit(sbatch) slurm cluster job inside python and avoid shell script for complicated pipeline jobs. For sbatch options, now only supports job name, memory size(in GBs), time limit(in days), dependency and ouput file. But you can use add_option parameter to add more.
@@ -7,6 +7,25 @@ Submit(sbatch) slurm cluster job inside python and avoid shell script for compli
 ```bash
 # now published to PyPI, only support python version >= 3.5
 pip install pysbatch
+```
+
+## customized settings
+Recommended way to use the pysbatch, batch_setting object can be resued and avoid trouble
+```python
+from pysbatch import *
+x = batch_setting() # with default settings
+x.edit_default("--cpus-per-task=2 --job-name=lalaland") # now replace the default instead of "edit"
+x.add_options("--begin=16:00")
+
+# dependency works in the same way
+# edit dependency, de
+x.add_dep(27561)
+x.add_dep(27562)
+x.reset_dep()
+
+# the settings object can be reused
+x.sbatch("python hello.py")
+
 ```
 
 
@@ -23,8 +42,37 @@ sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python
 ```
 
 
-## running with custormized setting 
-(now still very messy, I'm trying to implement it in a better way)
+## limit total numbers in running/queued
+useful if your slurm has a queue quota set and you need to submit a large batch of jobs
+```python
+for job in joblist:
+  sbatch(job)
+  limit_jobs(limit=10000) # default is 200000
+```
+
+
+## run_cmd()
+```sh
+# simplified subprocess.run() of running linux command in python
+
+# in linux
+$ ls ..
+unrar
+var
+zlib-1.2.11
+```
+
+
+```python
+# in python
+>>>print(run_cmd(['ls', '..']))
+unrar
+var
+zlib-1.2.11
+```
+
+## customized settings(in 0.1.2, still works)
+(a little bit messy, implemented it a better way)
 ```python
 from pysbatch import *
 
@@ -52,34 +100,6 @@ x.add_options("--cpus-per-task=2 --job-name=lalaland ")
 # the settings object can be reused
 x.sbatch("python hello.py")
 
-```
-
-
-## limit total numbers in running/queued
-```python
-for job in joblist:
-  sbatch(job)
-  limit_jobs(limit=10000) # default is 200000
-```
-
-## run_cmd()
-```sh
-# simplified subprocess.run() of running linux command in python
-
-# in linux
-$ ls ..
-unrar
-var
-zlib-1.2.11
-```
-
-
-```python
-# in python
->>>print(run_cmd(['ls', '..']))
-unrar
-var
-zlib-1.2.11
 ```
 
 

@@ -2,6 +2,52 @@ import subprocess as sps
 import sys, os
 
 
+class batch_setting_new:
+    settings=""
+    dep=''
+
+    def __init__(self, settings="--ntasks=1 --cpus-per-task=1 -N 1 --job-name=$name --mem=8000 --time=1-0 --out=submit.out"):
+        self.settings=settings
+
+    def __str__(self):
+        return self.settings
+
+    def edit_default(self, edit):
+        # this function won't check if the options put in is correct or not
+        # directly replace the default version
+        self.settings=edit
+
+    def add_options(self, edit):
+        # add options
+        self.settings+=" {}".format(edit)
+
+    def reset_dep(self):
+        # if not dep is needed
+        self.dep = ''
+
+    def add_dep(self, edit):
+        # if need to add dep
+        try:
+            edit=int(edit)
+        except ValueError:
+            print("dependency input should be numerical jobid")
+            return
+
+        if not self.dep:
+            self.dep = "--dependency=afterok:{}".format(str(edit))
+        else:
+            self.dep += ":{}".format(str(edit))
+
+    def sbatch(self, wrap):
+        sub=['sbatch',
+             self.settings, self.dep,
+             '--wrap="{}"'.format(wrap.strip())]
+        # print(" ".join(sub))
+        process = sps.Popen(" ".join(sub), shell=True, stdout=sps.PIPE)
+        stdout = process.communicate()[0].decode("utf-8")
+        return(stdout)
+
+# old type is kept to main the compatibility
 class batch_setting:
     ntasks=''
     cpus_per_task=''
