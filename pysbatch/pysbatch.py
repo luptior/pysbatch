@@ -1,4 +1,5 @@
 import subprocess as sps
+<<<<<<< HEAD
 import sys, os, time
 sys.path.append(os.getcwd())
 
@@ -57,12 +58,18 @@ class batch_setting:
         return(stdout)
 
 def sbatch(job_name="py_job", mem='8', dep="", days='3', log="submit.out",wrap="python hello.py", add_option=""):
+=======
+import sys, os
+
+
+def sbatch(job_name="py_job", mem='8', dep="", time='3-0', log="submit.out",wrap="python hello.py", add_option=""):
+>>>>>>> master
     sub=['sbatch',
          '--ntasks=1',
          '--cpus-per-task=1', '-N', '1',
          '--job-name={}'.format(job_name),
          '--mem={}'.format(mem+"000"),
-         '--time={}'.format(days+"-0"),
+         '--time={}'.format(time),
          dep, add_option,
          '--out={}'.format(log),
          '--wrap="{}"'.format(wrap.strip())]
@@ -70,6 +77,7 @@ def sbatch(job_name="py_job", mem='8', dep="", days='3', log="submit.out",wrap="
     process = sps.Popen(" ".join(sub), shell=True, stdout=sps.PIPE)
     stdout = process.communicate()[0].decode("utf-8")
     return(stdout)
+
 
 def run_cmd(cmd):
     # simplified subprocess.run() of running linux command in python
