@@ -1,4 +1,4 @@
-# pysbatch
+# pysbatch 0.1.3
 
 Submit(sbatch) slurm cluster job inside python and avoid shell script for complicated pipeline jobs. For sbatch options, now only supports job name, memory size(in GBs), time limit(in days), dependency and ouput file. But you can use add_option parameter to add more.
 
@@ -10,11 +10,7 @@ pip install pysbatch
 
 
 ## running sbatch() function in python
-<<<<<<< HEAD
-```
-=======
 ```python
->>>>>>> master
 from pysbatch import *
 sbatch(wrap="python hello.py") # simplest
 
@@ -26,21 +22,7 @@ sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python
 ```
 
 ## running with custormized setting
-<<<<<<< HEAD
-```
-x = batch_setting()
-x.edit_default("--cpus-per-task=2 --job-name=lalaland")
-x.add_options("--ccc hwlo")
-x.sbatch("python hello.py") # after setup, the settings object can be reused
-
-```
-
-## total job number in queue
-```
-# most cluster will have cap for the number of jobs one user can submit into queue
-# with this function, you can set arbitary numbers, and submission will be paused for set time(in seconds)
-
-=======
+(now still very messy, I'm trying to implement it in a better way)
 ```python
 from pysbatch import *
 
@@ -67,10 +49,16 @@ x.add_options("--cpus-per-task=2 --job-name=lalaland ")
 
 # the settings object can be reused
 x.sbatch("python hello.py")
->>>>>>> master
 
 ```
 
+
+## limit total numbers in running/queued
+```python
+for job in joblist:
+  sbatch(job)
+  limit_jobs(limit=10000) # default is 200000
+```
 
 ## run_cmd()
 ```sh
@@ -82,14 +70,10 @@ unrar
 var
 zlib-1.2.11
 ```
-<<<<<<< HEAD
-# simplified subprocess.run() of running linux command in python
-=======
 
 
 ```python
 # in python
->>>>>>> master
 >>>print(run_cmd(['ls', '..']))
 unrar
 var
