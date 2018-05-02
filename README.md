@@ -1,4 +1,5 @@
-# pysbatch 0.1.2
+# pysbatch 0.1.3
+
 
 Submit(sbatch) slurm cluster job inside python and avoid shell script for complicated pipeline jobs. For sbatch options, now only supports job name, memory size(in GBs), time limit(in days), dependency and ouput file. But you can use add_option parameter to add more.
 
@@ -20,6 +21,7 @@ sbatch(job_name="py_job", mem=16, dep="--dependency:afterok:{}".format(jobid), t
 sbatch(job_name="py_job", add_option="--cpus-per-task=1 --nodes=3", wrap="python hello.py") # add more options
 
 ```
+
 
 ## running with custormized setting 
 (now still very messy, I'm trying to implement it in a better way)
@@ -52,6 +54,13 @@ x.sbatch("python hello.py")
 
 ```
 
+
+## limit total numbers in running/queued
+```python
+for job in joblist:
+  sbatch(job)
+  limit_jobs(limit=10000) # default is 200000
+```
 
 ## run_cmd()
 ```sh
