@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='pysbatch',
-      version='0.1.3',
+      version='0.1.4',
       description='Submit slurm job in python',
       url='https://github.com/luptior/pysbatch',
       author='Gan Xu',
