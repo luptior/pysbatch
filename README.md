@@ -1,4 +1,5 @@
-# pysbatch 0.1.4
+# pysbatch 0.1.4 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
 
 
 Submit(sbatch) slurm cluster job inside python and avoid shell script for complicated pipeline jobs. For sbatch options, now only supports job name, memory size(in GBs), time limit(in days), dependency and ouput file. But you can use add_option parameter to add more.
