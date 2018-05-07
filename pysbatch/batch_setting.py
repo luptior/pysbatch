@@ -73,7 +73,7 @@ class batch_setting:
             self.log=str(log)
 
     def __str__(self):
-...         return self.ntasks, self.cpus_per_task, self.N, self.job_name, \
+            return self.ntasks, self.cpus_per_task, self.N, self.job_name, \
             self.mem, self.time, self.log
 
     def edit_default(self, edit):
