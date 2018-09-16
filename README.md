@@ -1,6 +1,6 @@
 # pysbatch 0.1.4 
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
-![PyPI - Slurm Version](https://img.shields.io/badge/slurm-%3E%3D%2018-green.svg)
+![PyPI - Python Version](https://img.shields.io/badge/python-≥3.5-blue.svg)
+![PyPI - Slurm Version](https://img.shields.io/badge/slurm-≥18-green.svg)
 
 
 Submit(sbatch) slurm cluster job inside python and avoid shell script for complicated pipeline jobs. For sbatch options, now only supports job name, memory size(in GBs), time limit(in days), dependency and ouput file. But you can use add_option parameter to add more.
