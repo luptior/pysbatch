@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='pysbatch',
-      version='0.1.4',
+      version='0.1.5',
       description='Submit slurm job in python',
       url='https://github.com/luptior/pysbatch',
       author='Gan Xu',
@@ -11,7 +11,7 @@ setup(name='pysbatch',
       zip_safe=False,
       classifiers=[
           # How mature is this project?
-          'Development Status :: 2 - Pre-Alpha',
+          'Development Status :: 4 - Beta',
 
           # Indicate who your project is intended for
           'Intended Audience :: Science/Research',
@@ -25,5 +25,5 @@ setup(name='pysbatch',
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',],
       keywords='slurm batch job submit',
-      python_requires='>=3'
+      python_requires='>=3.5'
      )
