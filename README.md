@@ -1,4 +1,4 @@
-# pysbatch 0.1.5 
+# pysbatch 0.1.6 
 ![PyPI - Python Version](https://img.shields.io/badge/python-≥3.5-blue.svg)
 ![PyPI - Slurm Version](https://img.shields.io/badge/slurm-≥18-green.svg)
 
