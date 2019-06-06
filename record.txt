@@ -1,0 +1,13 @@
+/anaconda3/lib/python3.7/site-packages/pysbatch/hello.py
+/anaconda3/lib/python3.7/site-packages/pysbatch/__init__.py
+/anaconda3/lib/python3.7/site-packages/pysbatch/pysbatch.py
+/anaconda3/lib/python3.7/site-packages/pysbatch/batch_setting.py
+/anaconda3/lib/python3.7/site-packages/pysbatch/__pycache__/hello.cpython-37.pyc
+/anaconda3/lib/python3.7/site-packages/pysbatch/__pycache__/__init__.cpython-37.pyc
+/anaconda3/lib/python3.7/site-packages/pysbatch/__pycache__/pysbatch.cpython-37.pyc
+/anaconda3/lib/python3.7/site-packages/pysbatch/__pycache__/batch_setting.cpython-37.pyc
+/anaconda3/lib/python3.7/site-packages/pysbatch-0.1.6-py3.7.egg-info/PKG-INFO
+/anaconda3/lib/python3.7/site-packages/pysbatch-0.1.6-py3.7.egg-info/not-zip-safe
+/anaconda3/lib/python3.7/site-packages/pysbatch-0.1.6-py3.7.egg-info/SOURCES.txt
+/anaconda3/lib/python3.7/site-packages/pysbatch-0.1.6-py3.7.egg-info/top_level.txt
+/anaconda3/lib/python3.7/site-packages/pysbatch-0.1.6-py3.7.egg-info/dependency_links.txt

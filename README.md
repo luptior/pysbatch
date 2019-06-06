@@ -14,7 +14,7 @@ pip install pysbatch
 conda install -c conda-forge pysbatch
 conda install -c luptior pysbatch
 
-# newer version is not published on PyPI
+# newer version is not published on PyPI, so if you see any problem try download from github
 git clone https://github.com/luptior/pysbatch.git
 cd pysbatch
 pip install .
