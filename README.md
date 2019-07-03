@@ -7,6 +7,11 @@ Submit(sbatch) slurm cluster job inside python and avoid shell script for compli
 
 ## install in linux/unix
 ```bash
+# newer version takes time to publish on PyPI, so if you see any problem try downloading from github
+git clone https://github.com/luptior/pysbatch.git
+cd pysbatch
+pip install .
+
 # now published to PyPI, only support python version >= 3.5
 pip install pysbatch
 
@@ -14,10 +19,6 @@ pip install pysbatch
 conda install -c conda-forge pysbatch
 conda install -c luptior pysbatch
 
-# newer version is not published on PyPI, so if you see any problem try download from github
-git clone https://github.com/luptior/pysbatch.git
-cd pysbatch
-pip install .
 ```
 
 ## customized settings
@@ -83,8 +84,8 @@ var
 zlib-1.2.11
 ```
 
-## customized settings(in 0.1.2, still works)
-(a little bit messy, implemented it a better way)
+## customized settings(in 0.1.2 version, still works)
+(a little bit messy, already implemented it a better way)
 ```python
 from pysbatch import *
 
