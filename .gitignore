@@ -7,6 +7,7 @@
 meta.yaml
 bld.bat
 build.sh
+record.txt
 
 # Python egg metadata, regenerated from source files by setuptools.
 /*.egg-info
@@ -20,3 +21,6 @@ build.sh
 .Trashes
 ehthumbs.db
 Thumbs.db
+.idea/
+
+.gitignore
