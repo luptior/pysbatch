@@ -21,7 +21,7 @@ class batch_setting_new:
 
     def add_options(self, edit):
         # add options
-        self.settings += " {}".format(edit)
+        self.settings += f" {edit}"
 
     def reset_dep(self):
         # if not dep is needed
@@ -36,14 +36,14 @@ class batch_setting_new:
             return
 
         if not self.dep:
-            self.dep = "--dependency=afterok:{}".format(str(edit))
+            self.dep = f"--dependency=afterok:{str(edit)}"
         else:
-            self.dep += ":{}".format(str(edit))
+            self.dep += f":{str(edit)}"
 
     def sbatch(self, wrap):
         sub = ['sbatch',
                self.settings, self.dep,
-               '--wrap="{}"'.format(wrap.strip())]
+               f'--wrap="{wrap.strip()}"']
         # print(" ".join(sub))
         process = sps.Popen(" ".join(sub), shell=True, stdout=sps.PIPE)
         stdout = process.communicate()[0].decode("utf-8")
@@ -85,7 +85,7 @@ class batch_setting:
                 var, value = x.split("=")
                 var = '_'.join(filter(None, var.split("-")))
                 _ = 'value'
-                exec("self.{} = {}".format(var, _))
+                exec(f"self.{var} = {_}")
         except:
             sys.exit("Edit string is in wrong format/include options other than default")
 
@@ -158,23 +158,24 @@ class batch_setting:
             return
 
         if not self.dep:
-            self.dep = "--dependency=afterok:{}".format(str(edit))
+            self.dep = f"--dependency=afterok:{str(edit)}"
         else:
-            self.dep += ":{}".format(str(edit))
+            self.dep += f":{str(edit)}"
 
     def add_options(self, edit):
         self.options = edit
 
     def sbatch(self, wrap):
         sub = ['sbatch',
-               '--ntasks={}'.format(self.ntasks),
-               '--cpus-per-task={}'.format(self.cpus_per_task), '-N', self.N,
-               '--job-name={}'.format(self.job_name),
-               '--mem={}'.format(self.mem + "000"),
-               '--time={}'.format(self.time),
-               self.dep, self.options,
-               '--out={}'.format(self.log),
-               '--wrap="{}"'.format(wrap.strip())]
+               f'--ntasks={self.ntasks}',
+               f'--cpus-per-task={self.cpus_per_task}', '-N', self.N,
+               f'--job-name={self.job_name}',
+               f'--mem={self.mem}000',
+               f'--time={self.time}',
+               self.dep,
+               self.options,
+               f'--out={self.log}',
+               f'--wrap="{wrap.strip()}"']
         # print(" ".join(sub))
         process = sps.Popen(" ".join(sub), shell=True, stdout=sps.PIPE)
         stdout = process.communicate()[0].decode("utf-8")
