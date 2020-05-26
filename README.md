@@ -2,6 +2,13 @@
 ![PyPI - Python Version](https://img.shields.io/badge/python-≥3.5-blue.svg)
 ![PyPI - Slurm Version](https://img.shields.io/badge/slurm-≥18-green.svg)
 
+Current release info
+====================
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pysbatch-green.svg)](https://anaconda.org/conda-forge/pysbatch) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pysbatch.svg)](https://anaconda.org/conda-forge/pysbatch) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pysbatch.svg)](https://anaconda.org/conda-forge/pysbatch) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pysbatch.svg)](https://anaconda.org/conda-forge/pysbatch) |
+
 
 A Slurm command wrapper. Submit(sbatch) slurm cluster job inside python and avoid shell script for complicated pipeline jobs. For sbatch options, now only supports job name, memory size(in GBs), time limit(in days), dependency and ouput file. But you can use add_option parameter to add more.
 
